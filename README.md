@@ -14,6 +14,10 @@ Building a CLI app to schedule whatsapp messages and send them automatically onc
 - Send whatsapp messages automatically
 - 
 
+
+
+
+
 ##  Installation and setup
 
 First clone this repository to your local machine using 
@@ -54,7 +58,8 @@ To run pytests ensure that you are within the virtual environment and have the f
 python3 -m pytest
 ```
 
-<iframe width="1101" height="620" src="https://www.youtube.com/embed/TZ-ECS6iwKY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+https://user-images.githubusercontent.com/27253931/124198939-7d02e700-dada-11eb-8131-30d7ad07ccd2.mp4
+
 
 
 ## License
