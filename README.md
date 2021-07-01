@@ -56,6 +56,7 @@ To run pytests ensure that you are within the virtual environment and have the f
 
 ```sh 
 python3 -m pytest
+
 ```
 
 https://user-images.githubusercontent.com/27253931/124198939-7d02e700-dada-11eb-8131-30d7ad07ccd2.mp4
