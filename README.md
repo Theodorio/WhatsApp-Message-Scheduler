@@ -32,16 +32,19 @@ and activate it.
 cd into the app folder and run
 ``` python3 send_message.py ```
 
-This file will start run the program in the background run 
+This file will start run the program in the background, 
+the background process is the one responsible for sending whatsapp messages
+
+run
+
 ``` python3 view.py ```
 
-This file will open the cli interface where you can register or login into your account and you can add message 
+This file will open the cli interface where you can register or login into your account, 
+a cli will help you navigate through the program with ease. 
 
 
 
-This text you see here is *actually- written in Markdown! To get a feel
-for Markdown's syntax, type some text into the left window and
-watch the results in the right.
+
 
 ## Tech
 
@@ -55,9 +58,12 @@ The project is built using:
 To run tests ensure that you are within the virtual environment and have the following installed:
 
 ```sh 
+
    pytest
 
 ```
+
+Here is a screen recording of the program
 
 https://user-images.githubusercontent.com/27253931/124198939-7d02e700-dada-11eb-8131-30d7ad07ccd2.mp4
 
