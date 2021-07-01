@@ -65,6 +65,8 @@ To run tests ensure that you are within the virtual environment and have the fol
 
 Here is a screen recording of the program
 
+here us a link to a high resolution video https://www.youtube.com/watch?v=TZ-ECS6iwKY
+
 https://user-images.githubusercontent.com/27253931/124198939-7d02e700-dada-11eb-8131-30d7ad07ccd2.mp4
 
 
