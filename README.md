@@ -6,12 +6,7 @@ Building a CLI app to schedule whatsapp messages and send them automatically onc
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=kahenyaa_WhatsApp-Message-Scheduler&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=kahenyaa_WhatsApp-Message-Scheduler) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=kahenyaa_WhatsApp-Message-Scheduler&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=kahenyaa_WhatsApp-Message-Scheduler) [![Code Grade](https://www.code-inspector.com/project/136/status/svg)](https://www.code-inspector.com/public/project/136/mygithubproject/dashboard)
 
 
-Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
-AngularJS-powered HTML5 Markdown editor.
 
-- Type some Markdown on the left
-- See HTML in the right
-- ✨Magic ✨
 
 ## Features
 
@@ -19,7 +14,7 @@ AngularJS-powered HTML5 Markdown editor.
 - Send whatsapp messages automatically
 - 
 
-## 2. Installation and setup
+##  Installation and setup
 
 First clone this repository to your local machine using 
 Checkout into the master branch using git checkout master
@@ -51,13 +46,15 @@ Dillinger uses a number of open source projects to work properly:
 - [Python3]
 
 
-#5. Tests
+## Tests
 
 To run pytests ensure that you are within the virtual environment and have the following installed:
 
 ```sh 
 python3 -m pytest
 ```
+
+
 
 
 ## License
