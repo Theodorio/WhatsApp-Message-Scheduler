@@ -45,17 +45,17 @@ watch the results in the right.
 
 ## Tech
 
-Dillinger uses a number of open source projects to work properly:
+The project is built using:
 
 - [Python3]
 
 
 ## Tests
 
-To run pytests ensure that you are within the virtual environment and have the following installed:
+To run tests ensure that you are within the virtual environment and have the following installed:
 
 ```sh 
-python3 -m pytest
+   pytest
 
 ```
 
@@ -67,7 +67,7 @@ https://user-images.githubusercontent.com/27253931/124198939-7d02e700-dada-11eb-
 
 MIT
 
-**Free Software, Hell Yeah!**
+**Free Software, **
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
