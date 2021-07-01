@@ -25,15 +25,15 @@ Checkout into the master branch using git checkout master
 
 Create a virtualenv on your machine and install the dependencies via 
 
-```sh pip install -r requirements.txt ```
+``` pip install -r requirements.txt ```
 
 and activate it. 
 
 cd into the app folder and run
-```sh python3 send_message.py ```
+``` python3 send_message.py ```
 
 This file will start run the program in the background run 
-```shpython3 view.py ```
+``` python3 view.py ```
 
 This file will open the cli interface where you can register or login into your account and you can add message 
 
