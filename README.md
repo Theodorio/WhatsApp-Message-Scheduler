@@ -3,7 +3,10 @@
 
 Building a CLI app to schedule whatsapp messages and send them automatically once the scheduled time has passed. For example, your app should prompt the user to write a message, their whatsapp number, the recipient’s numberand the time they intend to have it sent out.You can save this data on an SQLite Database.
 
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=kahenyaa_WhatsApp-Message-Scheduler&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=kahenyaa_WhatsApp-Message-Scheduler) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=kahenyaa_WhatsApp-Message-Scheduler&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=kahenyaa_WhatsApp-Message-Scheduler) [![Code Grade](https://www.code-inspector.com/project/24468/status/svg)](https://www.code-inspector.com/public/project/136/mygithubproject/dashboard)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=kahenyaa_WhatsApp-Message-Scheduler&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=kahenyaa_WhatsApp-Message-Scheduler) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=kahenyaa_WhatsApp-Message-Scheduler&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=kahenyaa_WhatsApp-Message-Scheduler) [![Code Grade](https://www.code-inspector.com/project/24468/status/svg)](https://frontend.code-inspector.com/public/project/24468/WhatsApp-Message-Scheduler/dashboard)
+
+
+[![Code Quality Score](https://www.code-inspector.com/project/24468/score/svg)](https://frontend.code-inspector.com/public/project/24468/WhatsApp-Message-Scheduler/dashboard)
 
 
 
