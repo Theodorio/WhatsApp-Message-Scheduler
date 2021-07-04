@@ -5,6 +5,8 @@ Building a CLI app to schedule whatsapp messages and send them automatically onc
 
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=kahenyaa_WhatsApp-Message-Scheduler&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=kahenyaa_WhatsApp-Message-Scheduler) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=kahenyaa_WhatsApp-Message-Scheduler&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=kahenyaa_WhatsApp-Message-Scheduler) [![Code Grade](https://www.code-inspector.com/project/136/status/svg)](https://www.code-inspector.com/public/project/136/mygithubproject/dashboard)
 
+https://www.code-inspector.com/project/24468/status/svg
+
 
 
 
