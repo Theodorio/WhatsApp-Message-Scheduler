@@ -8,7 +8,7 @@ global str
 import os
 from twilio.rest import Client
 account_sid = 'ACe3dfdbc83769dea0f01b42577c74928f' 
-auth_token = '08d0064412d04fa478e9f817af12782b' 
+auth_token = 'aaa639489ccccb9a7eb7f93d40fc2cbd' 
 client = Client(account_sid, auth_token) 
 
 
@@ -48,7 +48,7 @@ def job():
                               to=send_ph 
                           ) 
             print(message.sid)
-            db.execute("UPDATE messages SET status = 'Sent' AND updated_at = ? WHERE rowid = ?;",(str(t),int(rowid)))
+            db.execute("UPDATE messages SET status = 'Sent'  WHERE rowid = ?;",[rowid])
             conn.commit() 
         
 

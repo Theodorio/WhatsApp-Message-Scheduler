@@ -1,8 +1,10 @@
 import sqlite3
 from os import error
-
+import time
 from tabulate import tabulate
 from clint.textui import puts, colored, indent
+from rich.progress import Progress
+
 
 
 conn = sqlite3.connect('database.db')
@@ -70,7 +72,7 @@ def display_all_messages(user_id):
     try:
         db.execute("SELECT * FROM messages WHERE user_id = ?;",(str(user_id)))
         record = db.fetchall()
-        headers = ["ROWID", "User ID", "Message", "Status" , "Receiver Number", "Time Scheduled","Created At", "Updates At"]
+        headers = ["ROWID", "User ID", "Message", "Status" , "Receiver Number", "Time Scheduled","Created At", "Updated At"]
         print(colored.green(tabulate(record, headers,tablefmt="grid"))) 
         response = "Displaying all message"
         return response
@@ -82,7 +84,7 @@ def display_all_scheduled_in_the_database():
     try:
         db.execute("SELECT * FROM messages where status = 'Scheduled';")
         record = db.fetchall()
-        headers = ["ROWID", "User ID", "Message", "Status" , "Receiver Number", "Time Scheduled","Created At", "Updates At"]
+        headers = ["ROWID", "User ID", "Message", "Status" , "Receiver Number", "Time Scheduled","Created At", "Updated At"]
         print(colored.green(tabulate(record, headers,tablefmt="grid"))) 
         response = "Displaying all message"
         return response
@@ -98,7 +100,7 @@ def display_scheduled_messages(user_id):
     try:
         db.execute("SELECT * FROM messages WHERE user_id = ? and status = 'Scheduled';",(str(user_id)))
         record = db.fetchall()  
-        headers = ["ROWID", "User ID", "Message", "Status" , "Receiver Number", "Time Scheduled","Created At", "Updates At"]
+        headers = ["ROWID", "User ID", "Message", "Status" , "Receiver Number", "Time Scheduled","Created At", "Updated At"]
         print(colored.green(tabulate(record, headers,tablefmt="grid"))) 
         response = "Displaying all message"   
         return response
@@ -113,7 +115,20 @@ def display_cancelled_messages(user_id):
     try:
         db.execute("SELECT * FROM messages WHERE user_id = ? and status = 'Cancelled';",(str(user_id)))
         record = db.fetchall()
-        headers = ["ROWID", "User ID", "Message", "Status" , "Receiver Number", "Time Scheduled","Created At", "Updates At"]
+        headers = ["ROWID", "User ID", "Message", "Status" , "Receiver Number", "Time Scheduled","Created At", "Updated At"]
+        print(colored.green(tabulate(record, headers,tablefmt="grid")))
+        response = "Displaying all message"
+        return response
+    except:
+        response = "User not Found"
+        return response
+
+# display cancelled messages
+def display_sent_messages(user_id):
+    try:
+        db.execute("SELECT * FROM messages WHERE user_id = ? and status = 'Sent';",(str(user_id)))
+        record = db.fetchall()
+        headers = ["ROWID", "User ID", "Message", "Status" , "Receiver Number", "Time Scheduled","Created At", "Updated At"]
         print(colored.green(tabulate(record, headers,tablefmt="grid")))
         response = "Displaying all message"
         return response
@@ -128,11 +143,18 @@ def display_selected_messages(rowid,user_id):
         db.execute("SELECT * FROM messages WHERE rowid = ? and user_id = ?;",(str(rowid),str(user_id)))
         record = db.fetchall()
         #print(record)
-        headers = ["ROWID", "User ID", "Message", "Status" , "Receiver Number", "Time Scheduled","Created At", "Updates At"]
+        with Progress() as progress:                        
+                        task3 = progress.add_task("[cyan]Loading Messages...", total=100)
+
+                        while not progress.finished:
+                           
+                            progress.update(task3, advance=1.5)
+                            time.sleep(0.02)
+        headers = ["ROWID", "User ID", "Message", "Status" , "Receiver Number", "Time Scheduled","Created At", "Updated At"]
         print(colored.green(tabulate(record, headers,tablefmt="grid")))
         if( len(record) == 1 ):
             response = "Message Found"
-            return record
+            return response
         else:
             response = "Message not Found"
             return response
@@ -140,29 +162,34 @@ def display_selected_messages(rowid,user_id):
 
 
 #edit message from single message
-def edit_message_message(rowid,current_time,message):
+def edit_message_message(message,rowid):
     try:
-        db.execute('''UPDATE messages SET message = ? and updated_at = ? WHERE rowid = ?;''',(str(message),str(current_time),str(rowid)))
+        db.execute(""" UPDATE messages SET message = ?  WHERE rowid = ?;""",[message,rowid])
         conn.commit() 
         response = "Message Successfully Updated"
         return response
     except:
         response = "Message not updated"
+        return response
 
 
 
 #edit status from single message
-def edit_message_status(rowid,current_time,status):
-    db.execute(''' UPDATE messages SET status = ? and updated_at = ? WHERE rowid = ?;''',(str(status),str(current_time),str(rowid)))
-    conn.commit() 
-    response = "Status Successfully Updated"
-    return error
+def edit_message_status(status,rowid):
+    try:
+        db.execute(""" UPDATE messages SET status = ? WHERE rowid = ?;""",[status,rowid])
+        conn.commit() 
+        response = "Status Successfully Updated"
+        return response
+    except:
+        response = "Status not Updated"
+        return response
 
 
 
 #edit schedule from single message
-def edit_message_schedule(rowid,schedule,current_time):
-    db.execute(''' UPDATE messages SET time_scheduled = ? and updated_at = ? WHERE rowid = ?;''',(str(schedule),str(current_time),str(rowid)))
+def edit_message_schedule(rowid,schedule):
+    db.execute(''' UPDATE messages SET time_scheduled = ? WHERE rowid = ?;''',[schedule,rowid])
     conn.commit() 
     response = "Schedule Successfully Updated"
     return response   

@@ -2,7 +2,7 @@ from _pytest.python_api import raises
 import pytest
 import model
 
-@pytest.mark.xfail(raises=AssertionError)
+
 #test if user table is created
 def create_user_table():
     user_table = model.create_user_table()
@@ -50,7 +50,7 @@ def test_view_scheduled_messages():
 
 #test view cancelled messages
 def view_scheduled_messages():
-    view_cancelled_messages = model.display_cancelled_messages
+    view_cancelled_messages = model.display_cancelled_messages()
     return view_cancelled_messages
 
 def test_view_cancelled_messages():
@@ -59,16 +59,16 @@ def test_view_cancelled_messages():
 
 #test if selected message is available
 def display_selected_message():
-    display_selected_message = model.display_selected_messages
+    display_selected_message = model.display_selected_messages()
     return display_selected_message
 
 def test_display_selected_message():
-    assert model.display_selected_messages(40,2) != "Message Found"
+    assert model.display_selected_messages(70,2) == "Message Found"
 
 
 #test if selected message is not found
 def display_selected_message_not_found():
-    display_selected_message_not_found = model.display_selected_messages
+    display_selected_message_not_found = model.display_selected_messages()
     return display_selected_message_not_found
 
 def test_display_selected_message_not_found():
@@ -77,26 +77,26 @@ def test_display_selected_message_not_found():
 
 #edit message
 def edit_message():
-     edit_message = model.edit_message_message
+     edit_message = model.edit_message_message()
      return edit_message
 
 def test_edit_message():
-     assert model.edit_message_message('1','message changed','today') == "Message Successfully Updated"
+     assert model.edit_message_message("message changed",71) == "Message Successfully Updated"
 
 
 #edit status
 def edit_status():
-    edit_status = model.edit_message_status
+    edit_status = model.edit_message_status()
     return edit_status
 
 def test_edit_status():
-    assert model.edit_message_status('1','Cancelled','today') != "Status Successfully Updated"
+    assert model.edit_message_status("cancelled",70) == "Status Successfully Updated"
 
 
 #edit scheduled time
 def edit_scheduled_time():
-    edit_scheduled_time = model.edit_message_status
+    edit_scheduled_time = model.edit_message_status()
     return edit_scheduled_time
 
 def test_edit_scheduled_time():
-    assert model.edit_message_schedule('1','tomorrow','updated now') == "Schedule Successfully Updated"
+    assert model.edit_message_schedule('1','tomorrow') == "Schedule Successfully Updated"
