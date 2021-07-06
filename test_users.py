@@ -27,7 +27,7 @@ def user_register():
     return user_register
 
 def test_user_register():
-    assert users.Create_user('tuntu','kinya','testemails@gmail.com','password').create() == "Error creating account"
+    assert users.Create_user('tuntu','kinya','testemails@gmail.com','password','+254700419377').create() == "Error creating account"
 
 
 
@@ -37,6 +37,6 @@ def user_register_fail():
     return user_register
 
 def test_user_register_fail():
-    assert users.Create_user('john','kahenya','kahenyaa@gmail.com','qwerty').create() == "Error creating account"
+    assert users.Create_user('john','kahenya','kahenyaa@gmail.com','qwerty','+254700419377').create() == "Error creating account"
 
     

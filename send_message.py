@@ -8,7 +8,7 @@ global str
 import os
 from twilio.rest import Client
 account_sid = 'ACe3dfdbc83769dea0f01b42577c74928f' 
-auth_token = 'aaa639489ccccb9a7eb7f93d40fc2cbd' 
+auth_token = 'c6654224eadf65e549ddccc9fb7129bb' 
 client = Client(account_sid, auth_token) 
 
 
@@ -33,11 +33,17 @@ def job():
     if(len(records) > 0):
         for record in records:
             print(current_time)
-            messages = record[2]
-            #model.edit_message_status(rowid,'Sent',t)
+            conn = sqlite3.connect('database.db')
+            db = conn.cursor()
+            rowid = record[1]
+            db.execute("SELECT phone FROM users WHERE rowid = ?;",[rowid])
+            phone_record = db.fetchall()
+            phone_sender = phone_record[0][0]
+            messages = record[2] + '               *From ' + phone_sender + '* '
+            #model.edit_message_status(rowid,'Sent',t)s
             phone = record[4]
             rowid = record[0]
-            
+            print(messages)
             time_scheduled = record[5]
             send_ph = 'whatsapp:'+ phone
 

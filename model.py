@@ -16,8 +16,9 @@ def create_user_table():
         first_name blob NOT NULL, 
         last_name blob NOT NULL,
         email blob UNIQUE NOT NULL,
+        phone blob NOT NULL,
         password blob NOT NULL, 
-        created_at blob NOT NULL); 
+        created_at blob NOT NULL ); 
 
    """
     try:
@@ -25,8 +26,7 @@ def create_user_table():
         response = "Database created"
         return response
     except:
-        response = 'Users Table already created'
-
+        response = "Users Table already created"
         return response
 
 
@@ -193,4 +193,90 @@ def edit_message_schedule(rowid,schedule):
     conn.commit() 
     response = "Schedule Successfully Updated"
     return response   
-    
+
+
+
+# edit first name
+def edit_first_name(first_name,row_id):
+    try:
+        db.execute( ''' UPDATE users SET first_name = ? WHERE rowid = ?; ''',[first_name,row_id])
+        conn.commit()
+        response = "First Name Successfully Updated"
+        return response
+    except:
+        response = "Error Updating First Name"
+        return response
+ 
+
+#edit last name
+def edit_last_name(last_name,row_id):
+    try:
+        db.execute( ''' UPDATE users SET last_name = ? WHERE rowid = ?; ''',[last_name,row_id])
+        conn.commit()
+        response = "Last Name Successfully Updated"
+        return response
+    except:
+        response = "Error Updating Last Name"
+        return response
+ 
+
+
+#change password
+def edit_password(password,row_id):
+    try:
+        db.execute( ''' UPDATE users SET password = ? WHERE rowid = ?; ''',[password,row_id])
+        conn.commit()
+        response = "Password Successfully Updated"
+        return response
+    except:
+        response = "Error Updating Password"
+        return response
+
+#change phone number
+def edit_phone(phone,row_id):
+    try:
+        db.execute( ''' UPDATE users SET phone = ? WHERE rowid = ?; ''',[phone,row_id])
+        conn.commit()
+        response = "Phone Successfully Updated"
+        return response
+    except:
+        response = "Error Updating Phone"
+        return response
+
+
+#forget password
+def reset_password(password,email):
+    try:
+        db.execute( ''' UPDATE users SET password = ? WHERE email = ?; ''',[password,email])
+        conn.commit()
+        response = "Password Successfully Updated"
+        return response
+    except:
+        response = "Error Resetting Password"
+        return response
+
+
+
+def display_user_profile(rowid):
+        db.execute("SELECT * FROM users WHERE rowid =?;",(str(rowid)))
+        record = db.fetchall()
+        #print(record)
+        with Progress() as progress:                        
+                        task3 = progress.add_task("[cyan]Loading Messages...", total=100)
+
+                        while not progress.finished:
+                           
+                            progress.update(task3, advance=1.5)
+                            time.sleep(0.02)
+        headers = ["ROWID", "First Name", "Last Name", "Email" , "Phone", "Password","Created At"]
+        print(colored.green(tabulate(record, headers,tablefmt="grid")))
+        if( len(record) == 1 ):
+            response = "Message Found"
+            return response
+        else:
+            response = "Message not Found"
+            return response
+
+
+create_user_table()
+create_message_table()

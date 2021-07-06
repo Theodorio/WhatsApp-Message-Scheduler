@@ -9,7 +9,7 @@ def create_user_table():
     return user_table
 
 def test_create_user_table():
-    assert model.create_user_table() == 'Users Table already created'
+    assert model.create_user_table() == "Users Table already created"
 
 
 #test if messages table is created
@@ -100,3 +100,70 @@ def edit_scheduled_time():
 
 def test_edit_scheduled_time():
     assert model.edit_message_schedule('1','tomorrow') == "Schedule Successfully Updated"
+
+
+
+# test first name
+
+def edit_first_name():
+     edit_first_name = model.edit_first_name()
+     return edit_first_name
+
+def test_edit_first_name():
+    assert model.edit_first_name('Updated','4') == "First Name Successfully Updated"
+    
+
+
+
+
+
+#test edit last name
+
+def edit_last_name():
+     edit_last_name = model.edit_last_name()
+     return edit_last_name
+
+def test_edit_last_name():
+    assert model.edit_last_name('Madocho',5) == "Last Name Successfully Updated"
+    
+
+
+
+#test change password
+
+
+def edit_password():
+     edit_password = model.edit_password()
+     return edit_password
+
+def test_edit_password():
+    assert model.edit_password('Madocho','5') == "Password Successfully Updated"
+    
+
+
+
+#change phone number
+
+def edit_phone():
+     edit_phone = model.edit_phone()
+     return edit_phone
+
+def test_edit_phone():
+    assert model.edit_phone('Madocho','5') == "Phone Successfully Updated"
+    
+
+
+
+
+
+#forget password
+#***
+#def reset_password(password,row_id):
+#    try:
+#        db.execute( ''' UPDATE users SET password = ? WHERE rowid = ?; ''',[password,row_id])
+#        conn.commit()
+#        response = "Password Successfully Updated"
+#    except:
+#        response = "Error Resetting Password"
+
+# ***#       

@@ -51,23 +51,26 @@ class User:
 #class will create user
 class Create_user(User):
     #constructor
-     def __init__(self,first_name,last_name,email,password):
+     def __init__(self,first_name,last_name,email,password,phone):
         self.first_name = first_name
         self.last_name = last_name
         self.email = email
         self.password = password
+        self.phone = phone
+
 
      def create(self):
         conn = sqlite3.connect('database.db')
         db = conn.cursor()
         try:
-          db.execute("INSERT INTO users (first_name,last_name,email,password,created_at) VALUES (?,?,?,?,?)",(self.first_name,self.last_name,self.email,self.password,current_date))
+          db.execute("INSERT INTO users (first_name,last_name,email,password,phone,created_at) VALUES (?,?,?,?,?,?)",(self.first_name,self.last_name,self.email,self.password,self.phone,current_date))
           conn.commit()
           response = "Account successfully created"
           return response
         except:
-          response = "Error creating account"
-          return response
+          print(error)
+          #response = "Error creating account"
+          #return response
 
 new_user = User('kahenyaa','qwerty')
-reg_user = Create_user('john','kahenya','kahenyaa@gmail.com','qwerty').create()
+reg_user = Create_user('john','kahenya','kahenyaa@gmail.com','qwerty','+254700419377').create()
